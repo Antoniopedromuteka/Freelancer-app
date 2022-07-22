@@ -1,0 +1,57 @@
+
+
+
+
+
+.banner{
+
+    width: 100%;
+
+    max-width: 100%;
+    height: 100vh;
+    background-image: url("../../../public/images/Banner.png");
+    margin-top: 77px;
+    background-size: cover;
+    background-position: center;
+
+    
+
+
+ 
+
+
+
+    .sub_Banner{
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        background-color: rgba(54, 42, 165, 0.295);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+
+        text-align: center;
+
+
+
+        h2{
+
+            font-size: 2.2rem;
+
+
+            span{
+
+                color: rgb(54, 42, 165);
+            }
+
+        }
+
+
+        P{
+            font-size: 1.2rem;
+        }
+    }
+}

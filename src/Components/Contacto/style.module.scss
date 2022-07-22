@@ -1,0 +1,165 @@
+ 
+
+
+ .container{
+    width: 100%;
+    height: 40rem;
+    backgrouNd: #5C0F8B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    .content_left{
+        width: 45%;
+        height: 30rem;
+        background: #CCD3DB;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 2rem;
+        flex-wrap: wrap;
+        
+
+        .first{
+            flex-wrap: wrap;
+            gap: 1;
+            width: 15rem;
+            height: 10rem;
+            font-weight: 300;
+            font-size: 1.2rem;
+
+            h2{
+                font-weight: 500;
+                color: rgb(48, 48, 48);
+            }
+             
+        }
+
+
+        .second{
+             
+            width: 15rem;
+            height: 10rem;
+            font-size: 1.2rem;
+            font-weight: 300;
+           
+            h2{
+                color: rgb(48, 48, 48);
+                font-weight: 500;
+            }
+
+
+            div{
+
+                width: 10rem;
+                 
+                
+                display: flex;
+                flex-direction: column;
+
+               span:last-child{
+                 font-size: 1rem;
+                 margin-top: 1rem;
+               }
+
+               span:first-child{
+
+
+                .icons{
+                    margin-right: 1rem;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                }
+                
+
+               }
+
+
+            }
+             
+        }
+
+
+    }
+
+
+    .content_right{
+        width: 45%;
+        height: 40rem;
+        
+        display: flex;
+        align-items: center;
+
+        section{
+            width: 30rem;
+            height: 20rem;
+
+            
+
+
+            h2{
+                font-weight: 500;
+                color: #fff;
+
+                font-size: 2rem;
+            }
+
+            form{
+                width: 100%;
+                height: 20rem;
+                display: flex;
+                flex-direction: column;
+                
+
+
+                input{
+                    height: 2.5rem;
+                    padding: 0 1rem;
+                  margin-bottom: 0.5rem;
+                  outline: none;
+
+                  border-radius: 0.1rem;
+                  border: none;
+
+                  color: #fff;
+                }
+
+
+                textarea{
+                    resize: none;
+                    height: 10rem;
+
+                    padding: 0.5rem 1rem;
+
+                    outline: none;
+                    color: #F2F2F2;
+                }
+
+
+                button{
+                    height: 3rem;
+                    width: 50% !important;
+                    margin: 0.5rem auto;
+                    background: #004;
+                    border-radius: 0.3rem;
+                    color: #fff;
+
+                    transition: filter 2s;
+                    cursor: pointer;
+
+                    &:hover{
+                        font-weight: bold;
+                        filter: brightness(0.7);
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+ }

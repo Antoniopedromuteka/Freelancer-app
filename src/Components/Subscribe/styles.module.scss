@@ -1,0 +1,66 @@
+
+
+    //background: #5C0F8B;
+
+ //#3D9FF
+ 
+ .subscribe{
+
+
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 12rem;
+	background:  #5C0F8B;
+
+	position: relative;
+
+
+	.subscribe__title{
+		color: #fff;
+		font-weight: 400;
+		font-size: 2rem;
+	}
+
+
+	.form{
+		display: flex;
+	
+		justify-content: center;		
+		width: 60rem;
+		height: 3rem;
+	 
+
+
+		input{
+			width: 25rem;
+			margin-right: 1rem;
+			border-radius: 0.2rem;
+			border: none;
+			padding: 0 1rem;
+			outline: none;
+		}
+
+		button{
+			width: 10rem;
+			background: #004;
+			color: #fff;
+			border-radius: 0.2rem;
+			cursor: pointer;
+
+			transition: filter 2s;
+
+
+			&:hover{
+				filter: brightness(0.8);
+				font-weight: bold;
+
+			}
+		}
+	}
+
+
+
+ }
