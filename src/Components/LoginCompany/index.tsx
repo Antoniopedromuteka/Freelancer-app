@@ -1,4 +1,7 @@
-import { useState } from "react";
+import Link from "next/link";
+import { useContext, useState } from "react";
+import { loginContext } from "../../Context/MyContext";
+ 
 
 
 import * as S from "./style"
@@ -14,6 +17,8 @@ export function LoginCompany(){
 
     const [isLogin, setIsLogin] = useState<boolean>(true);
 
+
+    const [typeLogin, setTypeLogin]:any = useContext(loginContext);
 
 
 
@@ -44,6 +49,10 @@ export function LoginCompany(){
                     <button>
                         Enviar
                     </button>
+
+
+                  <span><Link href="/Login">login como candidato</Link></span>
+
 
 
                 </form>
