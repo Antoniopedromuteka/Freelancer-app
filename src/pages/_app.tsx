@@ -5,9 +5,11 @@ import { Footer } from '../Components/Footer'
  
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  const logged = true;
   return (
   <>
-    <Header/>
+    { logged ? <Header/> : ""}
     <Component {...pageProps} />
   
   </>  

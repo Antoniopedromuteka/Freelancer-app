@@ -3,6 +3,8 @@
 
 import styles from './styles.module.scss'
 
+import Link from 'next/link';
+
 
 
 
@@ -18,11 +20,11 @@ export function Header(){
             
                 <nav className={styles.nav_container}>
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#Sobre">Sobre</a></li>
-                        <li><a href="#">Post</a></li>
+                        <li><Link href="/"><a>Home</a></Link></li>
+                        <li><Link href="/Contacto"><a>Sobre</a></Link></li>
+                        <li><Link href="/Posts"><a>Post</a></Link></li>
 
-                        <li><a href="#Frel">Profissionais</a></li>
+                        <li><Link href="/Professionals"><a >Profissionais</a></Link></li>
                     </ul>
                     <div className={styles.button}>
                       <button> Login</button>

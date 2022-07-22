@@ -8,7 +8,7 @@ export default function Professionals(){
     return(
      <>
 
-        <Header/>
+       
 
         <S.Container>
 
