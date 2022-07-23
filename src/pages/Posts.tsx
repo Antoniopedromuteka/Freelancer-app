@@ -1,14 +1,50 @@
 
 
-import React from 'react'
+import React, { FormEvent, FormEventHandler, useState } from 'react'
 import {Header} from "../Components/Header/index"
 
- 
- 
+
+import { storage } from '../../services/firebase';
 
 import * as S from '../styles/Posts';
 
 const Posts = () => {
+   
+  const [imgURL, setImgURL] = useState();
+  const [progress, setProgress] = useState(0);
+
+  const FormHandler = (event: any) =>{
+
+    event.preventDefault();
+
+    const file = event.target[1].files[0];
+
+    uploadFiles(file);
+
+  }
+
+
+  const uploadFiles = (file:any) =>{
+    const uploadTask = storage.ref(`files/${file.name}`).put(file);
+
+    uploadTask.on('state_changed', snapshot =>{
+
+      const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+
+      setProgress(prog);
+
+    },
+     error => console.log(error),
+     () =>{
+        storage.ref("files").child(file.name).getDownloadURL().then(url =>{
+          console.log(url)
+        })
+     }
+     );
+  }
+
+   
+
   return (
     <>
      
@@ -19,7 +55,7 @@ const Posts = () => {
 
              <S.Subtitle>Post que temos na nossa plataforma</S.Subtitle>   
 
-
+            <h2>carrengado {progress}%</h2>
         </S.Top>
         
     
@@ -27,9 +63,14 @@ const Posts = () => {
 
             
         <S.Header>
+          <form onSubmit={FormHandler}>
+            <input type="text"  placeholder='poste alguma coisa' />
+            <input type="file" name="" placeholder="Pesquisar"/>
+     
+            <button type='submit'>Enviar</button>
+          </form>
 
-            <input type="text" name="" placeholder="Pesquisar"/>
-            <button>Enviar</button>
+      
                 
         </S.Header>
     

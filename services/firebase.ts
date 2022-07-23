@@ -3,7 +3,8 @@
 
 import firebase from "firebase/app";
 
-import {getStorage} from "firebase/storage";
+import "firebase/storage"
+//import {getStorage} from "firebase/storage";
  
 
 import "firebase/database";
@@ -26,13 +27,14 @@ const firebaseConfig = {
 
  
 if(!firebase.apps.length){
-    firebase.initializeApp(firebaseConfig);
+   firebase.initializeApp(firebaseConfig);
 }else{
     firebase.app();
 }
 
 const database = firebase.database();
+const storage = firebase.storage();
 
+export {database, firebase, storage}
 
-
-export {database, firebase}
+ 

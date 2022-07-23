@@ -233,20 +233,44 @@ export const Header = styled.header`
 
         
 
+    form{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 6rem;
 
-        input[type="text"]{
+        input:first-child{
+            width: 80%;
+            height: 3rem;
+            margin-left: 2rem;
+
+            border: 1px solid #ddd;
+            outline: none;
+            padding: 0.4rem;
+        }
+        input[type="file"]{
             padding:1rem;
             height:3rem;
-            width: 85%;
-            margin-left: -0.2rem;
+            width: 10rem;
+
+            right: 10rem;
+            position: relative;
+
+         
             outline: none;
+
+            
         }
 
         button{
             width: 20%;
             height:3rem;
             color : #fff;
-           
+            position: relative;
+
+            right: 7.5rem;
+            
             background: #6d44b8;
 
             border: none;
@@ -266,7 +290,7 @@ export const Header = styled.header`
                 font-weight: bold;
             }
         }
-
+    }
 
         
 
