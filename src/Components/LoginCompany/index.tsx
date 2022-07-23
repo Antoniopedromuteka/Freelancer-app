@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { useContext, useState } from "react";
-import { loginContext } from "../../Context/MyContext";
+import { FormEvent, useContext, useState } from "react";
+import { database } from "../../../services/firebase";
+import MyContext, { loginContext } from "../../Context/MyContext";
  
 
 
@@ -13,12 +14,63 @@ import * as S from "./style"
 
 export function LoginCompany(){
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordconfirm, setPasswordconfirm] = useState("");
+    const [key, setKey] = useState("");
+
+
     
 
     const [isLogin, setIsLogin] = useState<boolean>(true);
 
 
-    const [typeLogin, setTypeLogin]:any = useContext(loginContext);
+    const {typeLogin, setTypeLogin}:any = useContext(MyContext);
+
+    function limpa(){
+        setName('');
+        setEmail('');
+        setPassword('');
+        setPasswordconfirm('');
+      }
+    
+
+    function SingUpCompany(event: FormEvent){
+
+        event.preventDefault();
+
+        const ref = database.ref('Empresa');
+
+        const datas = {
+            name,
+            email,
+            password,
+            passwordconfirm,
+            
+            profileDatas:{
+                image: "",
+                price:0,
+                profission:"",
+                descriptionTitle: "",
+                descriptionExtra: "",
+                location: "",
+                tel:"",
+                linkSocialMedia: [],
+                about:  "",
+                habilitys: [],
+            }
+        }
+
+
+        ref.push(datas)
+
+
+
+
+        limpa();
+
+    }
 
 
 
@@ -51,7 +103,7 @@ export function LoginCompany(){
                     </button>
 
 
-                  <span><Link href="/Login">login como candidato</Link></span>
+                  <span onClick={()=> setTypeLogin(true)}><Link href="/Login">login como candidato</Link></span>
 
 
 
@@ -59,11 +111,12 @@ export function LoginCompany(){
              }
              
              {!isLogin &&
-                <form>
+                <form onSubmit={SingUpCompany}>
             
-                    <input type="email" placeholder="Insira o seu email"/>
-                    <input type="password" placeholder="Insira a sua password"/>
-                    <input type="password" placeholder="confirme sua password"/> 
+                    <input type="text" placeholder=" Insira o seu Nome" value={name} onChange={(event)=> setName(event.target.value)} />
+                    <input type="email" placeholder=" Insira o seu email" value={email} onChange={(event)=> setEmail(event.target.value)}/>
+                    <input type="password" placeholder="Insira a sua password" value={password} onChange={(event)=> setPassword(event.target.value)}/>
+                    <input type="password" placeholder="confirme sua password" value={passwordconfirm} onChange={(event) => setPasswordconfirm(event.target.value)}/> 
                     <button>
                         Cadastrar
                     </button>

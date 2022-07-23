@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LoginCompany } from "../Components/LoginCompany";
 import { LoginSingle } from "../Components/LoginSingle";
-import { loginContext } from "../Context/MyContext";
+import MyContext, { loginContext } from "../Context/MyContext";
 
 import * as S from "../styles/Login"
 
 
 export default function Login(){
 
-    const [typeLogin, setTypeLogin] = useState<boolean>(true)
+    const {typeLogin, setTypeLogin}: any= useContext(MyContext);
 
     return(
         <>

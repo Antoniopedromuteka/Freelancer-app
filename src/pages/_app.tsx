@@ -34,8 +34,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 
   const [userDataS, setUserDataS] = useState<userDataSingle[]>();
+  const [userDataSCompany, setUserDataSCompany] = useState<userDataSingle[]>();
 
 
+  const [typeLogin, setTypeLogin] = useState<boolean>(true)
 
   useEffect(()=>{
 
@@ -77,17 +79,57 @@ function MyApp({ Component, pageProps }: AppProps) {
   
     }, []);
 
+    useEffect(()=>{
+
+      const refUserDataCompany = database.ref('Empresa')
+      refUserDataCompany.on('value', resultado =>{
+  
+  
+   
+          const resultUserDataCompany = Object.entries<userDataSingle>(resultado.val() ?? {})
+          .map(([key, valor]) =>{
+            return{
+              'key': key,
+              'name': valor.name,
+              'email': valor.email,
+              'password': valor.password,
+              'passwordconfirm': valor.passwordconfirm,
+              
+              'profileDatas':{
+                  'image': valor.profileDatas.image,
+                  'price': valor.profileDatas.price,
+                  'descriptionTitle': valor.profileDatas.descriptionTitle,
+                  'descriptionExtra': valor.profileDatas.descriptionExtra,
+                  'location': valor.profileDatas.location,
+                  'profission': valor.profileDatas.profission,
+                  'tel': valor.profileDatas.tel,
+                  'linkSocialMedia': valor.profileDatas.linkSocialMedia,
+                  'about':  valor.profileDatas.about,
+                  'habilitys': valor.profileDatas.habilitys,
+                  
+              }
+            
+    
+            }
+          })
+    
+          setUserDataSCompany(resultUserDataCompany);
+          
+        }) 
+    
+      }, []);
+
 
   const logged = true;
   //const [user, setUser] = useState<userProps>({name: 'user', email: 'user@example.com'});
 
   return (
   <>
-  <MyContext.Provider value={{userDataS, setUserDataS}}>
+  <MyContext.Provider value={{userDataS, setUserDataS, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany}}>
     { logged ? <Header/> : ""}
     <Component {...pageProps} />
   </MyContext.Provider>
-  </>  
+  </> 
 
   )
 }

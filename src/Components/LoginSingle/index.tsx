@@ -48,7 +48,7 @@ export function LoginSingle(){
     const {userDataS, setUserDataS}: any = useContext(MyContext);
    
 
-    const {typeLogin, setTypeLogin}:any = useContext(loginContext);
+    const {typeLogin, setTypeLogin}:any = useContext(MyContext);
 
 
 
@@ -140,7 +140,7 @@ export function LoginSingle(){
                     </button>
 
 
-                  <span onClick={()=> setTypeLogin(true)}><Link  href="/Login">login como empresa</Link></span>
+                  <span onClick={()=> setTypeLogin(false)}><Link  href="/Login">login como empresa</Link></span>
 
                 </form>
              }

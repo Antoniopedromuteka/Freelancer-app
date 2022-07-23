@@ -1,6 +1,9 @@
 
 // Import the functions you need from the SDKs you need
+
 import firebase from "firebase/app";
+
+import {getStorage} from "firebase/storage";
  
 
 import "firebase/database";

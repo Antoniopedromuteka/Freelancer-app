@@ -25,10 +25,12 @@ export function Header(){
                         <li><Link href="/Posts"><a>Post</a></Link></li>
 
                         <li><Link href="/Professionals"><a >Profissionais</a></Link></li>
+                        <li><Link href="/Empresas"><a >Empresas</a></Link></li>
+
                     </ul>
                     <div className={styles.button}>
-                      <button> Login</button>
-                      <button>Cadastrar</button>
+                      <button><Link href="/Login">Login</Link></button>
+                      <button><Link href='/Login'>Cadastrar</Link></button>
                      
                     </div>
                 </nav>
