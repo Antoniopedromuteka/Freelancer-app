@@ -8,7 +8,7 @@ import * as S from "../styles/Login"
 
 export default function Login(){
 
-    const [typeLogin, setTypeLogin] = useState<boolean>()
+    const [typeLogin, setTypeLogin] = useState<boolean>(true)
 
     return(
         <>

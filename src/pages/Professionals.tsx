@@ -2,8 +2,12 @@
 
 import * as S  from "../styles/professionals"
 import { Header } from "../Components/Header";
+import { useContext } from "react";
+import MyContext from "../Context/MyContext";
 
 export default function Professionals(){
+
+    const {userDataS, setUserDataS}: any = useContext(MyContext);
 
     return(
      <>
@@ -19,6 +23,11 @@ export default function Professionals(){
         </S.Top>
 
         <S.ContainerCards>
+
+
+        {userDataS.map((user:any)=>(
+
+      
         <S.Card>
 
             <S.CardImage>
@@ -27,7 +36,7 @@ export default function Professionals(){
             <S.CardBody>
 
           
-            <S.CardBodyTiled>Nome Completo</S.CardBodyTiled>
+            <S.CardBodyTiled>{user.name}</S.CardBodyTiled>
 
             <S.CardBodySubtitle>Area de trabalho</S.CardBodySubtitle>
            
@@ -36,45 +45,12 @@ export default function Professionals(){
         
         
             </S.Card> 
+            
+            
+            ))    
+        }
 
-            <S.Card>
-
-            <S.CardImage>
-            <img src="https://img.freepik.com/free-photo/woman-having-online-class-meeting-through-e-learning-system_53876-101169.jpg?t=st=1658512650~exp=1658513250~hmac=e7544b2b9e549e2d9f6b039d64b6b49d28762ee78315fcea925189ca3b701018&w=1060" alt="" />
-            </S.CardImage>
-            <S.CardBody>
-
-
-            <S.CardBodyTiled>Nome Completo</S.CardBodyTiled>
-
-            <S.CardBodySubtitle>Area de trabalho</S.CardBodySubtitle>
-
-
-            </S.CardBody>
-
-
-            </S.Card> 
-
-
-            <S.Card>
-
-                    
-                <S.CardImage>
-                <img src="https://img.freepik.com/free-photo/african-american-business-woman-working-computer-bar_1303-10865.jpg?t=st=1658512115~exp=1658512715~hmac=f62212b45957e7b012a44db381c9e75384e65180313349919a3b332773a7e6b7&w=1060" alt="" />
-                </S.CardImage>
-                <S.CardBody>
-
-
-                <S.CardBodyTiled>Nome Completo</S.CardBodyTiled>
-
-                <S.CardBodySubtitle>Area de trabalho</S.CardBodySubtitle>
-
-
-                </S.CardBody>
-
-
-                </S.Card> 
-        
+       
 
 
         </S.ContainerCards>
