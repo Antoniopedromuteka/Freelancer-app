@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FormEvent, useContext, useState } from "react";
 import { database } from "../../../services/firebase";
-import MyContext, { loginContext } from "../../Context/MyContext";
+import MyContext from "../../Context/MyContext";
  
 
 

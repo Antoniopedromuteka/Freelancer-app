@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { arrayBuffer } from "stream/consumers";
 import { database } from "../../../services/firebase";
-import MyContext, { loginContext } from "../../Context/MyContext";
+import MyContext  from "../../Context/MyContext";
 
 
 import * as S from "./style"

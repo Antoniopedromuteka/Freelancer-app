@@ -30,14 +30,18 @@ type userDataSingle ={
 }
 
 
+ 
+
 function MyApp({ Component, pageProps }: AppProps) {
 
 
   const [userDataS, setUserDataS] = useState<userDataSingle[]>();
   const [userDataSCompany, setUserDataSCompany] = useState<userDataSingle[]>();
 
+  const [islogged, setIslogged] = useState(false);
 
-  const [typeLogin, setTypeLogin] = useState<boolean>(true)
+
+  const [typeLogin, setTypeLogin] = useState<Boolean>(true)
 
   useEffect(()=>{
 
@@ -125,8 +129,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
   <>
-  <MyContext.Provider value={{userDataS, setUserDataS, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany}}>
-    { logged ? <Header/> : ""}
+  <MyContext.Provider value={{userDataS, setUserDataS, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany, islogged, setIslogged}}>
+    <Header/>
     <Component {...pageProps} />
   </MyContext.Provider>
   </> 
