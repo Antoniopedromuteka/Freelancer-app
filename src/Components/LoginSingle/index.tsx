@@ -54,7 +54,7 @@ export function LoginSingle(){
 
     
     console.log(typeLogin);
-
+    
     console.log(userDataS)
     
 
