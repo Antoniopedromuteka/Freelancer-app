@@ -1,7 +1,7 @@
 
 
 import * as S from "..//styles/Freelancer";
-import { SidebarRight } from "../Components/SidebarRight";
+import { SidebarLeft } from "../Components/SidebarLeft";
 
 
 export default function FreelancerDashboard(){
@@ -10,7 +10,7 @@ export default function FreelancerDashboard(){
 
         <S.Container>
             
-            <SidebarRight/>
+            <SidebarLeft/>
 
             <S.Main>
 

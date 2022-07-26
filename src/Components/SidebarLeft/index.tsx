@@ -1,8 +1,9 @@
 
 
+import Link from 'next/link';
 import * as S from './style';
 
-export function SidebarRight(){
+export function SidebarLeft(){
 
 
     return(
