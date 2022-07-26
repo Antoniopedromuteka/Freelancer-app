@@ -29,9 +29,9 @@ export function SidebarLeft(){
 
                 <ul>
 
-                    <li>Dashboard</li>
-                    <li>Oportunidades</li>
-                    <li>Canditaturas</li>
+                    <li><Link href="/FreelancerDashboard">Dashboard</Link></li>
+                    <li><Link href="/Oportunidades">Oportunidades</Link></li>
+                    <li><Link href="/Candidature">Canditaturas</Link></li>
                     <li>Editar meu perfil</li>
 
                 </ul>

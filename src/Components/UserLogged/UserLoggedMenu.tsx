@@ -18,9 +18,9 @@ export function Menu(){
 
             <nav>
                 <ul>
-                <li><Link href="/">Dashboard</Link></li>
-                <li><Link href="/Posts">Oportunidades</Link></li>
-                <li><Link href="/Candidatura">Candidaturas</Link></li>
+                <li><Link href="/FreelancerDashboard">Dashboard</Link></li>
+                <li><Link href="/Oportunidades">Oportunidades</Link></li>
+                <li><Link href="/Candidature">Candidaturas</Link></li>
                 <li><Link href="/UpdateProfile">Editar meu perfil</Link></li>
                 <li onClick={() => setIslogged(true)}><Link href="/Login">Sair</Link></li>
                 </ul>

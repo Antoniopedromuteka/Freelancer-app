@@ -19,6 +19,8 @@ export const Container = styled.section`
     display: flex;
     flex-direction: column;
 
+   
+
 
     section:first-child{
         width: 100%;
