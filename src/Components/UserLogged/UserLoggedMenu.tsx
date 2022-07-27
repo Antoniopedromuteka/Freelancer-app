@@ -11,6 +11,17 @@ export function Menu(){
 
     const {setIslogged}: any = useContext(MyContext);
 
+
+    function LogOut(){
+
+        setIslogged(false);
+
+
+
+       
+
+    }
+
     return (
         <>
 
@@ -22,7 +33,7 @@ export function Menu(){
                 <li><Link href="/Oportunidades">Oportunidades</Link></li>
                 <li><Link href="/Candidature">Candidaturas</Link></li>
                 <li><Link href="/UpdateProfile">Editar meu perfil</Link></li>
-                <li onClick={() => setIslogged(true)}><Link href="/Login">Sair</Link></li>
+                <li onClick={LogOut}><Link href="/Login">Sair</Link></li>
                 </ul>
             </nav>
 

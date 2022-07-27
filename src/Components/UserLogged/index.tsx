@@ -1,7 +1,8 @@
 
 
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import MyContext from "../../Context/MyContext";
 import * as S from "./styles"
 import { Menu } from "./UserLoggedMenu";
 
@@ -12,7 +13,9 @@ export function UserLogged(){
 
 
     const [isOpen, setIsOpen] = useState(false);
- 
+    const {user, setUser}: any= useContext(MyContext);
+
+    
     function handleOpenMenu(){
 
         !isOpen ? setIsOpen(true) : setIsOpen(false); 
@@ -36,7 +39,7 @@ export function UserLogged(){
 
             <section onClick={handleOpenMenu}>
                 <span>
-                    António
+                    {user[0].name}
                 </span>
 
                 <div>

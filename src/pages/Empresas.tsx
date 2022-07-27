@@ -4,13 +4,18 @@ import * as S  from "../styles/professionals"
 import { Header } from "../Components/Header";
 import { useContext } from "react";
 import MyContext from "../Context/MyContext";
+import Home from ".";
 
 export default function Company(){
 
     const {userDataSCompany, setUserDataSCompany}: any = useContext(MyContext);
+    const {islogged}: any = useContext(MyContext);
 
     return(
+
      <>
+
+     {islogged ? 
 
        
 
@@ -59,7 +64,7 @@ export default function Company(){
         </S.Container>
 
 
-
+        : <Home/>}
 
 
 

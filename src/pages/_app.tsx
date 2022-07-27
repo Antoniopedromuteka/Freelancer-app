@@ -37,10 +37,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const [userDataS, setUserDataS] = useState<userDataSingle[]>();
   const [userDataSCompany, setUserDataSCompany] = useState<userDataSingle[]>();
-
+  
   const [islogged, setIslogged] = useState(false);
 
-  const [userLogged, setUserLogged] = useState();
+  const [user, setUser] = useState<userDataSingle>();
+
+  
 
   const [typeLogin, setTypeLogin] = useState<Boolean>(true)
 
@@ -125,12 +127,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       }, []);
 
 
-  const logged = true;
+   
   //const [user, setUser] = useState<userProps>({name: 'user', email: 'user@example.com'});
 
   return (
   <>
-  <MyContext.Provider value={{userDataS, setUserDataS, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany, islogged, setIslogged, userLogged, setUserLogged}}>
+  <MyContext.Provider value={{userDataS, setUserDataS, user, setUser, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany, islogged, setIslogged}}>
     <Header/>
     <Component {...pageProps} />
   </MyContext.Provider>

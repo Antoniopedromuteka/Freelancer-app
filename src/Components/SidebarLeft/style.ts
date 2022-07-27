@@ -15,7 +15,7 @@ export const Container = styled.section`
     position: fixed;
     left: 0;
 
-    background: #234;
+    background: #28343b;
     display: flex;
     flex-direction: column;
 

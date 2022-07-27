@@ -1,9 +1,10 @@
 import Link from "next/link";
+import Router from "next/router";
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { arrayBuffer } from "stream/consumers";
 import { database } from "../../../services/firebase";
 import MyContext  from "../../Context/MyContext";
-import { UserLogged } from "../UserLogged";
+ 
 
 
 import * as S from "./style"
@@ -43,12 +44,15 @@ export function LoginSingle(){
     const [passwordconfirm, setPasswordconfirm] = useState("");
     const [key, setKey] = useState("");
 
+    
     const [isLogin, setIsLogin] = useState<boolean>(true);
 
 
     const {userDataS, setUserDataS} : any= useContext(MyContext);
 
-    const {userLogged, setUserLogged}: any = useContext(MyContext);
+
+    const {user, setUser}: any= useContext(MyContext);
+  
    
 
     const {typeLogin, setTypeLogin}:any = useContext(MyContext);
@@ -60,7 +64,7 @@ export function LoginSingle(){
     const [passwordLogin, setPasswordLogin] = useState("");
 
     
- 
+    const {setIslogged}: any= useContext(MyContext);
    
     
 
@@ -110,23 +114,26 @@ export function LoginSingle(){
     }
 
 
-    function handleLogin(event: FormEvent){
+    async function handleLogin(event: FormEvent){
 
 
         event.preventDefault();
 
 
-        const user = userDataS.find((user:userDataSingle) => (user.email === emailLogin && user.password === passwordLogin));
+        const userS = await userDataS?.filter((user:userDataSingle) => (user.email === emailLogin && user.password === passwordLogin));
         
+        console.log(userS);
+      
 
-        
-        if(user){
+        if(userS?.length > 0){
 
-            
-            setUserLogged(user);
 
-            //window.location.href = "/FreelancerDashboard";
+             setUser(userS)
 
+             setIslogged(true);
+             
+
+            Router.push("/FreelancerDashboard")
 
         }
 
@@ -145,6 +152,7 @@ export function LoginSingle(){
 
 
 
+        
   
         <S.Container>
 
@@ -198,6 +206,9 @@ export function LoginSingle(){
             </main>
 
         </S.Container>
+
+
+  
         
         
          </>

@@ -1,15 +1,18 @@
 
 
-import { useContext } from "react";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import * as S from "..//styles/Freelancer";
 import { SidebarLeft } from "../Components/SidebarLeft";
+import { UserLogged } from "../Components/UserLogged";
  
 import MyContext from "../Context/MyContext";
+import Login from "./Login";
  
 
 
-type userDataSingle ={
-
+interface userDataSingle{
+    key: string,
     name: string,
     email: string,
     password: string,
@@ -32,79 +35,129 @@ type userDataSingle ={
 
 export default function FreelancerDashboard(){
 
-    const {userLogged}: any= useContext(MyContext);
+    
     const {userDataS} : any= useContext(MyContext);
 
-    
-    console.log(userLogged);
+    const {user, setUser}: any  = useContext(MyContext);
 
-    console.log(userLogged);
+     
+  
+        
+
+
+       
+     
+
+     
+
    
+        
+
+
+
+
+       
+ 
+
+
+
+
+       
     return(
 
-    
-
         
-        <S.Container>
-            
-            <SidebarLeft/>
-
-            <S.Main>
-
-             <section>
-
-                    <h2>Bem vindo (a), ao nosso sistema Freelancer</h2>
+        <>
+    
+        
+    
+         
+       
 
 
-             </section>
- 
-             <section>
-
-                <div>
-
-                    <h2>Oportunidaddes</h2>
-                  
-                  
-
-                    <section>
-
-                    <h2>10</h2>
-
-                    <span>Ver</span>
+         {!user ? <Login/> : 
 
 
-                    </section>
+            user?.map((user : userDataSingle)  =>(
+
+                <S.Container>
+                            
+
+                <SidebarLeft />
+
+                <S.Main>
+
+                <section>
+
+                        <h2>Bem vindo (a), {user.name}  ao nosso sistema Freelancer</h2>
+
+
+                </section>
+
+                <section>
+
+                    <div>
+
+                        <h2>Oportunidaddes</h2>
+                    
                     
 
-                </div>
-
-
-                <div>
-              
-                    <h2>Candidaturas</h2>
-
-                     
-                    <section>
+                        <section>
 
                         <h2>10</h2>
 
                         <span>Ver</span>
 
-                    </section>
+
+                        </section>
+                        
+
+                    </div>
 
 
-                </div>
-             </section>
+                    <div>
                 
+                        <h2>Candidaturas</h2>
 
-            </S.Main>
+                        
+                        <section>
+
+                            <h2>10</h2>
+
+                            <span>Ver</span>
+
+                        </section>
+
+
+                    </div>
+                </section>
+                    
+
+                </S.Main>
 
 
 
 
-        </S.Container>
+                </S.Container>
+             
+        
+         
 
 
+
+
+            ))
+               
+
+
+         }
+
+    
+
+    
+                        
+         
+        
+        </>
     
         
 

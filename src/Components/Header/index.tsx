@@ -28,7 +28,7 @@ export function Header(){
             <header className={styles.header}>
                 <h2><a> Freelancer</a></h2>
             
-                {islogged ? <Navbar/> :  <UserLogged /> }
+                {islogged ? <UserLogged /> : <Navbar/>  }
               
             </header>
         </div>
