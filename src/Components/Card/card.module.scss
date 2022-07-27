@@ -14,8 +14,8 @@
 .card{
   min-height:200px;
   width:260px;
-  margin:40px 10px;
-  padding:1rem;
+  margin:20px 10px;
+  padding:0.5rem;
   cursor:pointer;
   background-color:#fff;
   
@@ -46,7 +46,7 @@
   margin-top:-200px;
   opacity:0;
   visibility:hidden;
-  transition:all .5s ease-in-out;
+  transition:all .5s ease-out;
 
 
 
@@ -90,9 +90,10 @@
  
  
 .card:hover img{
-  margin-top:-60px;
+  margin-top:-20px;
   box-shadow:0 0 4px 6px rgba(0,0,0,0.3);
 }
+
 .card:hover>.card__content{
   margin-top:0;
   opacity:1;

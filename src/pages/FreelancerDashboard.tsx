@@ -1,13 +1,50 @@
 
 
+import { useContext } from "react";
 import * as S from "..//styles/Freelancer";
 import { SidebarLeft } from "../Components/SidebarLeft";
+ 
+import MyContext from "../Context/MyContext";
+ 
 
+
+type userDataSingle ={
+
+    name: string,
+    email: string,
+    password: string,
+    passwordconfirm: string,
+    
+    profileDatas:{
+        image: string,
+        price: number,
+        descriptionTitle: string,
+        descriptionExtra: string,
+        location: string,
+        profission: string,
+        tel: number,
+        linkSocialMedia: ArrayBuffer,
+        about:  "",
+        habilitys: ArrayBuffer,
+    }
+
+}
 
 export default function FreelancerDashboard(){
 
+    const {userLogged}: any= useContext(MyContext);
+    const {userDataS} : any= useContext(MyContext);
+
+    
+    console.log(userLogged);
+
+    console.log(userLogged);
+   
     return(
 
+    
+
+        
         <S.Container>
             
             <SidebarLeft/>
@@ -16,11 +53,11 @@ export default function FreelancerDashboard(){
 
              <section>
 
-                    <h2>Bem vindo (a), Antonio ao nosso sistema Freelancer</h2>
+                    <h2>Bem vindo (a), ao nosso sistema Freelancer</h2>
 
 
              </section>
-
+ 
              <section>
 
                 <div>
@@ -66,6 +103,10 @@ export default function FreelancerDashboard(){
 
 
         </S.Container>
+
+
+    
+        
 
     );
 

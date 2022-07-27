@@ -6,9 +6,12 @@ import MyContext  from "../Context/MyContext";
 import * as S from "../styles/Login"
 
 
+
+
 export default function Login(){
 
     const {typeLogin, setTypeLogin}: any= useContext(MyContext);
+
 
     return(
         <>

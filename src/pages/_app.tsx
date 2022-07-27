@@ -40,6 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const [islogged, setIslogged] = useState(false);
 
+  const [userLogged, setUserLogged] = useState();
 
   const [typeLogin, setTypeLogin] = useState<Boolean>(true)
 
@@ -129,7 +130,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
   <>
-  <MyContext.Provider value={{userDataS, setUserDataS, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany, islogged, setIslogged}}>
+  <MyContext.Provider value={{userDataS, setUserDataS, typeLogin, setTypeLogin, userDataSCompany, setUserDataSCompany, islogged, setIslogged, userLogged, setUserLogged}}>
     <Header/>
     <Component {...pageProps} />
   </MyContext.Provider>

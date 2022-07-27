@@ -9,10 +9,11 @@ import {ItemsData} from './mockItemsData';
 import { Subscribe } from '../Components/Subscribe/index'
 import ContactUs from '../Components/Contacto'
 import { Footer } from '../Components/Footer'
+ 
 
+ 
 
-
-
+ 
  
  
 const Home: NextPage = () => {
@@ -68,23 +69,37 @@ const Home: NextPage = () => {
             <p>Freelancer, conheça as nossas áreas</p>
         </div>
 
-        
+
+
+                
                 <div className={styles.areas_container}>
                     
-                    {
+                
                     
+                        {
+                            
                         ItemsData.map((item)=>{
                             return ( 
                               
-                                    <Card {...item} />       
+                                 
+                                    
+                                
+                                    <Card {...item} />
+ 
+                                
+       
                             );  
                             
                       
                         })    
-                      
-                    }
-                    
+                        }
+     
+               
+                 
                 </div>
+
+                
+  
 
                 
                 <Subscribe/>

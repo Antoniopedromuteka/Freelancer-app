@@ -36,6 +36,40 @@ export const ItemsData = [
         description: "Área vasta no que toca o criação de obras",
         image: 'https://www.fna.org.br/wp-content/uploads/2019/01/Constru%C3%A7%C3%A3o-civil_Kwangmoozaa_Istock-1024x427.jpg',
     },
+    
+    {
+        id: 6,
+        name: 'CONSTRUÇÃO CÍVIL',
+        description: "Área vasta no que toca o criação de obras",
+        image: 'https://www.fna.org.br/wp-content/uploads/2019/01/Constru%C3%A7%C3%A3o-civil_Kwangmoozaa_Istock-1024x427.jpg',
+    },
+
+    {
+        id: 7,
+        name: 'CONSTRUÇÃO CÍVIL',
+        description: "Área vasta no que toca o criação de obras",
+        image: 'https://www.fna.org.br/wp-content/uploads/2019/01/Constru%C3%A7%C3%A3o-civil_Kwangmoozaa_Istock-1024x427.jpg',
+    },
+
+
+    {
+        id: 5,
+        name: 'CONSTRUÇÃO CÍVIL',
+        description: "Área vasta no que toca o criação de obras",
+        image: 'https://www.fna.org.br/wp-content/uploads/2019/01/Constru%C3%A7%C3%A3o-civil_Kwangmoozaa_Istock-1024x427.jpg',
+    },
+    {
+        id: 5,
+        name: 'CONSTRUÇÃO CÍVIL',
+        description: "Área vasta no que toca o criação de obras",
+        image: 'https://www.fna.org.br/wp-content/uploads/2019/01/Constru%C3%A7%C3%A3o-civil_Kwangmoozaa_Istock-1024x427.jpg',
+    },
+    {
+        id: 5,
+        name: 'CONSTRUÇÃO CÍVIL',
+        description: "Área vasta no que toca o criação de obras",
+        image: 'https://www.fna.org.br/wp-content/uploads/2019/01/Constru%C3%A7%C3%A3o-civil_Kwangmoozaa_Istock-1024x427.jpg',
+    }
  
     
 ]

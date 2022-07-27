@@ -9,14 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@trendyol-js/react-carousel": "^3.0.0",
     "firebase": "8.10.0",
     "next": "12.2.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-alice-carousel": "^2.6.4",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
+    "react-responsive-carousel": "^3.2.23",
     "sass": "^1.53.0",
-    "styled-components": "^5.3.5",
-    "swiper": "^8.3.2"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "18.0.6",

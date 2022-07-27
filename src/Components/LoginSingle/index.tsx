@@ -3,6 +3,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import { arrayBuffer } from "stream/consumers";
 import { database } from "../../../services/firebase";
 import MyContext  from "../../Context/MyContext";
+import { UserLogged } from "../UserLogged";
 
 
 import * as S from "./style"
@@ -45,17 +46,22 @@ export function LoginSingle(){
     const [isLogin, setIsLogin] = useState<boolean>(true);
 
 
-    const {userDataS, setUserDataS}: any = useContext(MyContext);
+    const {userDataS, setUserDataS} : any= useContext(MyContext);
+
+    const {userLogged, setUserLogged}: any = useContext(MyContext);
    
 
     const {typeLogin, setTypeLogin}:any = useContext(MyContext);
 
+    
 
 
+    const [emailLogin, setEmailLogin] = useState("");
+    const [passwordLogin, setPasswordLogin] = useState("");
+
     
-    console.log(typeLogin);
-    
-    console.log(userDataS)
+ 
+   
     
 
 
@@ -94,7 +100,7 @@ export function LoginSingle(){
         }
 
 
-        ref.push(datas)
+        ref.push(datas);
 
 
 
@@ -103,6 +109,32 @@ export function LoginSingle(){
 
     }
 
+
+    function handleLogin(event: FormEvent){
+
+
+        event.preventDefault();
+
+
+        const user = userDataS.find((user:userDataSingle) => (user.email === emailLogin && user.password === passwordLogin));
+        
+
+        
+        if(user){
+
+            
+            setUserLogged(user);
+
+            //window.location.href = "/FreelancerDashboard";
+
+
+        }
+
+       
+      
+        
+
+    }
     
 
  
@@ -130,12 +162,12 @@ export function LoginSingle(){
 
                 </div>
             { isLogin &&
-                <form>
+                <form onSubmit={handleLogin}> 
 
-                    <input type="email"   placeholder="Insira o seu email"/>
-                    <input type="password"   placeholder="Insira a sua password"/>
+                    <input type="email"   placeholder="Insira o seu email" value={emailLogin} onChange={(event) => setEmailLogin(event.target.value)}/>
+                    <input type="password"   placeholder="Insira a sua password" value={passwordLogin} onChange={(event) => setPasswordLogin(event.target.value)}/>
 
-                    <button>
+                    <button type="submit">
                         Enviar
                     </button>
 
