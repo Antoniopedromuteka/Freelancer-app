@@ -1,4 +1,4 @@
-import { Router } from "next/router";
+import router from "next/router";
 import { useContext, useState } from "react";
 import Home from ".";
 import { LoginCompany } from "../Components/LoginCompany";
@@ -17,21 +17,16 @@ export default function Login(){
 
     const {islogged}: any  = useContext(MyContext);
 
-
+    
     
     return(
         <>
         
         <S.Container>
 
-            {!islogged ?
+            {
             
-             typeLogin ? <LoginSingle/> : <LoginCompany/>
-             :
-                
-                <Home/>
-             
-            }
+             typeLogin ? <LoginSingle/> : <LoginCompany/> }
         </S.Container>
      
         </>

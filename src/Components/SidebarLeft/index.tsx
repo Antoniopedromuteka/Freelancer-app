@@ -73,7 +73,7 @@ export function SidebarLeft(){
                 <li><Link href="/FreelancerDashboard">Dashboard</Link></li>
                 <li><Link href="/Oportunidades">Oportunidades</Link></li>
                 <li><Link href="/Candidature">Canditaturas</Link></li>
-                <li>Editar meu perfil</li>
+                <li><Link href="/UpdateProfile"> Editar meu perfil </Link></li>
 
             </ul>
 

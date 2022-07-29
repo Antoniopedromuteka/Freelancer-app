@@ -15,7 +15,7 @@ export default function Company(){
 
      <>
 
-     {islogged ? 
+ 
 
        
 
@@ -64,8 +64,7 @@ export default function Company(){
         </S.Container>
 
 
-        : <Home/>}
-
+         
 
 
      </>  

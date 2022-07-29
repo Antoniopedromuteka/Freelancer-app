@@ -4,6 +4,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import { arrayBuffer } from "stream/consumers";
 import { database } from "../../../services/firebase";
 import MyContext  from "../../Context/MyContext";
+import Home from "../../pages";
  
 
 
@@ -64,10 +65,10 @@ export function LoginSingle(){
     const [passwordLogin, setPasswordLogin] = useState("");
 
     
-    const {setIslogged}: any= useContext(MyContext);
-   
-    
+    const {setIslogged, islogged}: any= useContext(MyContext);
 
+
+ 
 
     function limpa(){
         setName('');
@@ -133,7 +134,8 @@ export function LoginSingle(){
              setIslogged(true);
              
 
-            Router.push("/FreelancerDashboard")
+            Router.push("/FreelancerDashboard");
+
 
         }
 
@@ -144,6 +146,8 @@ export function LoginSingle(){
     }
     
 
+
+    if(islogged) return <Home/>
  
 
 

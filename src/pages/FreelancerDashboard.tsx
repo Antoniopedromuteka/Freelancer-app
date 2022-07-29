@@ -3,6 +3,7 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import * as S from "..//styles/Freelancer";
+import { Loader } from "../Components/Loader";
 import { SidebarLeft } from "../Components/SidebarLeft";
 import { UserLogged } from "../Components/UserLogged";
  
@@ -40,6 +41,10 @@ export default function FreelancerDashboard(){
 
     const {user, setUser}: any  = useContext(MyContext);
 
+
+
+    
+    if(!userDataS) return <Loader/>;
      
   
         

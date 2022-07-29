@@ -5,6 +5,7 @@ import { Footer } from '../Components/Footer'
 import MyContext from '../Context/MyContext';
 import { useState, useEffect } from 'react';
 import {database} from '../../services/firebase';
+import { Loader } from '../Components/Loader';
 
 
 type userDataSingle ={
@@ -42,6 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const [user, setUser] = useState<userDataSingle>();
 
+  
   
 
   const [typeLogin, setTypeLogin] = useState<Boolean>(true)
@@ -126,6 +128,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     
       }, []);
 
+      if(!userDataS) return <Loader/>;
 
    
   //const [user, setUser] = useState<userProps>({name: 'user', email: 'user@example.com'});

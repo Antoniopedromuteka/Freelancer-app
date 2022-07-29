@@ -5,6 +5,30 @@ import { Header } from "../Components/Header";
 import { useContext } from "react";
 import MyContext from "../Context/MyContext";
 
+
+type userDataSingle ={
+    key: string,
+    name: string,
+    email: string,
+    password: string,
+    passwordconfirm: string,
+    
+    profileDatas:{
+        image: string,
+        price: number,
+        descriptionTitle: string,
+        descriptionExtra: string,
+        location: string,
+        profission: string,
+        tel: number,
+        linkSocialMedia: ArrayBuffer,
+        about:  "",
+        habilitys: ArrayBuffer,
+    }
+  
+  }
+  
+
 export default function Professionals(){
 
     const {userDataS, setUserDataS}: any = useContext(MyContext);
@@ -25,7 +49,7 @@ export default function Professionals(){
         <S.ContainerCards>
 
 
-        {userDataS.map((user:any)=>(
+        {userDataS.map((user:userDataSingle)=>(
 
       
         <S.Card>
@@ -38,7 +62,7 @@ export default function Professionals(){
           
             <S.CardBodyTiled>{user.name}</S.CardBodyTiled>
 
-            <S.CardBodySubtitle>Area de trabalho</S.CardBodySubtitle>
+            <S.CardBodySubtitle>{user.profileDatas.descriptionTitle}</S.CardBodySubtitle>
            
 
             </S.CardBody>
