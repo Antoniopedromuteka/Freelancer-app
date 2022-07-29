@@ -9,7 +9,7 @@ import { Loader } from '../Components/Loader';
 
 
 type userDataSingle ={
-
+  key: string,
   name: string,
   email: string,
   password: string,
@@ -95,7 +95,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   
   
    
-          const resultUserDataCompany = Object.entries<userDataSingle>(resultado.val() ?? {})
+          const resultadoUserDataCompany = Object.entries<userDataSingle>(resultado.val() ?? {})
           .map(([key, valor]) =>{
             return{
               'key': key,
@@ -121,16 +121,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     
             }
           })
-    
-          setUserDataSCompany(resultUserDataCompany);
+
+           
+          setUserDataSCompany(resultadoUserDataCompany);
+
           
         }) 
     
       }, []);
-
       if(!userDataS) return <Loader/>;
 
    
+      console.log(userDataSCompany);
   //const [user, setUser] = useState<userProps>({name: 'user', email: 'user@example.com'});
 
   return (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Router from "next/router";
 import { FormEvent, useContext, useState } from "react";
 import { database } from "../../../services/firebase";
 import MyContext from "../../Context/MyContext";
@@ -8,23 +9,55 @@ import MyContext from "../../Context/MyContext";
 import * as S from "./style"
 
 
+type userDataSingle ={
+    key: string,
+    name: string,
+    email: string,
+    password: string,
+    passwordconfirm: string,
+    
+    profileDatas:{
+        image: string,
+        price: number,
+        descriptionTitle: string,
+        descriptionExtra: string,
+        location: string,
+        profission: string,
+        tel: number,
+        linkSocialMedia: ArrayBuffer,
+        about:  "",
+        habilitys: ArrayBuffer,
+    }
+  
+  }
+  
 
 
  
 
 export function LoginCompany(){
 
+    const [emailLogin, setEmailLogin] = useState("");
+    const [passwordLogin, setPasswordLogin] = useState("");
+
+    
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordconfirm, setPasswordconfirm] = useState("");
     const [key, setKey] = useState("");
 
+    const {userDataSCompany}:any = useContext(MyContext);
+    const {user, setUser}: any= useContext(MyContext);
 
     
+     
+    const {setIslogged, islogged}: any= useContext(MyContext);
+
 
     const [isLogin, setIsLogin] = useState<boolean>(true);
 
+    console.log(userDataSCompany);
 
     const {typeLogin, setTypeLogin}:any = useContext(MyContext);
 
@@ -73,6 +106,41 @@ export function LoginCompany(){
     }
 
 
+    
+
+    async function handleLogin(event: FormEvent){
+
+
+        event.preventDefault();
+
+
+        const userS = await userDataSCompany?.filter((user:userDataSingle) => (user.email === emailLogin && user.password === passwordLogin));
+        
+        console.log(userS);
+      
+
+        if(userS?.length > 0){
+
+
+             setUser(userS)
+
+             setIslogged(true);
+             
+
+            Router.push("/CompanyDashboard");
+
+
+        }
+
+       
+      
+        
+
+    }
+    
+
+
+
 
     return (
         <>
@@ -93,12 +161,12 @@ export function LoginCompany(){
 
                 </div>
             { isLogin &&
-                <form>
+                <form onSubmit={handleLogin}>
 
-                    <input type="email" placeholder="Insira o seu email"/>
-                    <input type="password" placeholder="Insira a sua password"/>
+                    <input type="email" placeholder="Insira o seu email" value={emailLogin} onChange={(event)=> setEmailLogin(event.target.value)}/>
+                    <input type="password" placeholder="Insira a sua password" value={passwordLogin} onChange={(event)=> setPasswordLogin(event.target.value)}/>
 
-                    <button>
+                    <button type="submit">
                         Enviar
                     </button>
 

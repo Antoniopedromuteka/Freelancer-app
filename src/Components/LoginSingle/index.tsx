@@ -44,6 +44,7 @@ export function LoginSingle(){
     const [password, setPassword] = useState("");
     const [passwordconfirm, setPasswordconfirm] = useState("");
     const [key, setKey] = useState("");
+    
 
     
     const [isLogin, setIsLogin] = useState<boolean>(true);

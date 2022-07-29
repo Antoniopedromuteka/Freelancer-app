@@ -17,16 +17,18 @@ export default function Login(){
 
     const {islogged}: any  = useContext(MyContext);
 
+
+    console.log(islogged);
     
-    
+
+     
+     
     return(
         <>
         
         <S.Container>
 
-            {
-            
-             typeLogin ? <LoginSingle/> : <LoginCompany/> }
+            {typeLogin ? <LoginSingle/> : <LoginCompany/> }
         </S.Container>
      
         </>
