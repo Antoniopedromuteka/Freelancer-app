@@ -68,6 +68,7 @@ export const Container = styled.section`
             img{
                 
                 width: 30px;
+                height: 30px;
                 border-radius: 50%;
             }
 

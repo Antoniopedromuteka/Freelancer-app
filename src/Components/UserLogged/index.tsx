@@ -43,7 +43,7 @@ export function UserLogged(){
                 </span>
 
                 <div>
-                    <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFTFZYaARW3tg/profile-displayphoto-shrink_800_800/0/1648850570320?e=1664409600&v=beta&t=lVIIXx0ROFp85sHgG0mfkGLshcAed7JzwoL_27lcYUQ" alt="profile image" />
+                    <img src={user[0]?.profileDatas.image || ""} alt="profile image" />
                 </div>
             </section>
 

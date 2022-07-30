@@ -13,7 +13,7 @@ const Posts = () => {
   const [imgURL, setImgURL] = useState();
   const [progress, setProgress] = useState(0);
 
-  const FormHandler = (event: any) =>{
+  const FormHandler = (event:any) =>{
 
     event.preventDefault();
 

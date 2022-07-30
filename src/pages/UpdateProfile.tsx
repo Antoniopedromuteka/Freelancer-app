@@ -1,5 +1,5 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
-import { database } from "../../services/firebase";
+import { database, storage } from "../../services/firebase";
 import { Header } from "../Components/Header";
 import { SidebarLeft } from "../Components/SidebarLeft";
 import MyContext from "../Context/MyContext";
@@ -61,57 +61,68 @@ export default function UpdateProfile(){
     const [tel, setTel] = useState("")
     const[image, setImage] = useState("");
     
+  const [imgURL, setImgURL] = useState<string>("");
+ 
+
+  const uploadFiles = (file:any) =>{
+
+    if(!file) return;
+
+    const uploadTask = storage.ref(`files/${file.name}`).put(file);
+
+    uploadTask.on('state_changed', snapshot =>{
+ 
+
+    },
+     error => console.log(error),
+     () =>{
+        storage.ref("files").child(file.name).getDownloadURL().then(url =>{ setImgURL(url);  })
+     }
+     );
+  }
+
+
 
     const [about, setAbout] = useState("");
 
 
-    function handleUpdate(event:FormEvent){
+    function handleUpdate(event:any){
 
-        event.preventDefault();
+          event.preventDefault();
+
+      
+
+        const file = event.target[6].files[0];
+
+        console.log(file);
+
+       uploadFiles(file);
+        
+ 
         const ref = database.ref("freelancer/");
 
         const datas = {
             "name" : newname,
-            
-            
             "profileDatas":{
                 "about" : about,
                 "descriptionTitle" : title,
+                "image": imgURL,
                 "descriptionExtra" : description,
                 "price" : price,
                 "location" : local,
                 "tel": tel,
+
             }
            
         }
 
         ref.child(key).update(datas);
-
-
-
+ 
     }
 
-/*
-    function atualizarContato(){
-        const ref = database.ref("contatos/");
+ 
     
-        const dados = {
-           'nome' : nome,
-           'email' : email,
-           'telfone': telefone,
-           'observacoes': observacoes
-    
-        }
-    
-        ref.child(chave).update(dados);
-    
-        limpa();
-    
-        setAtualizando(false);
-    
-      }
 
-*/
 
     return(
 
