@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { database } from "../../services/firebase"
 import Adverts from "../Components/Adverts"
 import { SidebarLeft } from "../Components/SidebarLeft"
@@ -21,6 +21,12 @@ type AdvertsProps = {
 
 export default function Oportunidades(){   
 
+    
+
+
+
+
+  
 
 
     return(
@@ -33,13 +39,7 @@ export default function Oportunidades(){
 
                 <main>
 
-                    <section>
-                        <h2>Melhores Oportunidades para você</h2>
-
-                        <div>
-                            <input type="text" placeholder="Pesquisar" />
-                        </div>
-                    </section>
+                 
 
                     <Adverts/>
         
