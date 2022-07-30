@@ -55,7 +55,7 @@ export default function Professionals(){
         <S.Card>
 
             <S.CardImage>
-             <img src="https://img.freepik.com/free-photo/horizontal-shot-pretty-dark-skinned-woman-with-afro-hairstyle-has-broad-smile-white-teeth-shows-something-nice-friend-points-upper-right-corner-stands-against-wall_273609-16442.jpg?t=st=1658512115~exp=1658512715~hmac=b4bebcc5fa39b87838e62ea6ae77ec78e3a6a465205ec5145b9726de47969ee7&w=1060" alt="" />
+             <img src={user.profileDatas.image} alt="" />
             </S.CardImage>
             <S.CardBody>
 

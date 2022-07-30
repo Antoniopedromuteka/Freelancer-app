@@ -51,6 +51,7 @@ export default function UpdateProfile(){
     
 
     console.log(key);
+    if(!user) return
 
      
     const [newname, setNewname] = useState("");
@@ -76,7 +77,7 @@ export default function UpdateProfile(){
     },
      error => console.log(error),
      () =>{
-        storage.ref("files").child(file.name).getDownloadURL().then(url =>{ setImgURL(url);  })
+        storage.ref("files").child(file.name).getDownloadURL().then(url =>{ setImgURL(url); console.log(imgURL)})
      }
      );
   }
@@ -102,19 +103,20 @@ export default function UpdateProfile(){
         const ref = database.ref("freelancer/");
 
         const datas = {
+           
             "name" : newname,
             "profileDatas":{
+                "image": imgURL,
                 "about" : about,
                 "descriptionTitle" : title,
-                "image": imgURL,
                 "descriptionExtra" : description,
                 "price" : price,
                 "location" : local,
-                "tel": tel,
-
+                "tel": tel
             }
            
         }
+ 
 
         ref.child(key).update(datas);
  

@@ -39,7 +39,7 @@ export function SidebarLeft(){
 
   
 
-
+    console.log(user[0]);
 
     return(
         <>
