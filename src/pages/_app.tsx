@@ -65,16 +65,16 @@ function MyApp({ Component, pageProps }: AppProps) {
             'passwordconfirm': valor.passwordconfirm,
             
             'profileDatas':{
-                'image': valor.profileDatas.image,
-                'price': valor.profileDatas.price,
-                'descriptionTitle': valor.profileDatas.descriptionTitle,
-                'descriptionExtra': valor.profileDatas.descriptionExtra,
-                'location': valor.profileDatas.location,
-                'profission': valor.profileDatas.profission,
-                'tel': valor.profileDatas.tel,
-                'linkSocialMedia': valor.profileDatas.linkSocialMedia,
-                'about':  valor.profileDatas.about,
-                'habilitys': valor.profileDatas.habilitys,
+                'image': valor.profileDatas?.image,
+                'price': valor.profileDatas?.price,
+                'descriptionTitle': valor.profileDatas?.descriptionTitle,
+                'descriptionExtra': valor.profileDatas?.descriptionExtra,
+                'location': valor.profileDatas?.location,
+                'profission': valor.profileDatas?.profission,
+                'tel': valor.profileDatas?.tel,
+                'linkSocialMedia': valor.profileDatas?.linkSocialMedia,
+                'about':  valor.profileDatas?.about,
+                'habilitys': valor.profileDatas?.habilitys,
                 
             }
           
@@ -83,6 +83,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         })
   
         setUserDataS(resultadoUserDataSingle)
+      
         
       }) 
   
@@ -133,6 +134,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
    
       console.log(userDataSCompany);
+      console.log(userDataS);
   //const [user, setUser] = useState<userProps>({name: 'user', email: 'user@example.com'});
 
   return (

@@ -1,8 +1,9 @@
 
 
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { database } from "../../../services/firebase";
+import MyContext from "../../Context/MyContext";
 import * as S from "./style"
 
 
@@ -26,12 +27,15 @@ export default function Adverts(){
     
     const [advertsData, setAdvertsData] = useState<AdvertsProps[]>([]);
 
-    
+    const [invite, setInvite] = useState<AdvertsProps[]>([]);
 
     const [isSearch, setIsSearch] = useState(false);
 
     const [search, setSearch] = useState<AdvertsProps[]>([]);
 
+    const {user}:any = useContext(MyContext);
+
+    
 
 
     function handleSearch(event:FormEvent){
@@ -59,7 +63,42 @@ export default function Adverts(){
 
 
     }
- 
+
+    function handleSubscribe(advert:AdvertsProps){
+
+        console.log(advert);
+
+
+
+        if(!advert) return;
+
+          
+        setInvite([...invite, advert]);
+       
+
+        const ref = database.ref("Candidaturas")
+      
+        
+        if(!user[0]) return;
+
+       const userKey = user[0]?.key;
+
+               console.log(advert);
+
+        const data ={
+
+                userKey, 
+                advert, 
+           
+        }
+
+       
+        ref.push(data)
+
+    
+
+
+    } 
     
     useEffect(()=>{
 
@@ -71,7 +110,7 @@ export default function Adverts(){
             const resultAdverts = Object.entries<AdvertsProps>(resultado.val() ?? {})
             .map(([key, valor]) =>{
               return{
-                "key" : valor.key,
+                "key" : key,
                 "companyName": valor.companyName,
                 "title" : valor.title,
                 "typeMod" : valor.typeMod,
@@ -98,6 +137,7 @@ export default function Adverts(){
 
     return(
         <>
+
 
             <section>
                         <h2>Melhores Oportunidades para você</h2>
@@ -136,7 +176,7 @@ export default function Adverts(){
             </div>
 
             <div className="block2">
-                <button>Candidatar-se</button>
+                <button onClick={() => handleSubscribe(advert)}>Candidatar-se</button>
                 <button>Recusar</button>
 
             </div>
@@ -176,7 +216,7 @@ export default function Adverts(){
                 </div>
     
                 <div className="block2">
-                    <button>Candidatar-se</button>
+                    <button onClick={() => handleSubscribe(advert)}>Candidatar-se</button>
                     <button>Recusar</button>
     
                 </div>

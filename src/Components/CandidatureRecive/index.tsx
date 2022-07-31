@@ -52,12 +52,18 @@ type InviteProps = {
     advert: AdvertsProps,
 }
 
-export default function CandidatureSent(){
+
+
+export default function CandidatureRecive(){
 
     const {user, setUser}: any = useContext(MyContext);
     const {userDataS}:any = useContext(MyContext);
 
      const [invite, setInvite] = useState<InviteProps[]>([]);
+
+     const [info, setInfo] = useState<InviteProps>();
+
+     const [newdata, setNewdata] = useState<userDataSingle[]>([])
 
      useEffect(()=>{
 
@@ -84,40 +90,62 @@ export default function CandidatureSent(){
       
         }, []);
 
+     useEffect(()=>{
 
+       // console.log(invite)
+
+        const datas = invite.find((inv:InviteProps) =>{ return inv.advert.companyName === user[0]?.name;})
+
+        console.log(datas+ "fofklfk")
+
+        setInfo(datas);
+
+        const data = userDataS.find((user:userDataSingle) => user.key === info?.userKey);
+
+       
+
+        setNewdata([...newdata, data])
+
+        
+        
+
+      
+      
+     },[])
+
+     console.log(newdata)
+
+
+      
+     
+      
     return(
         <>
 
 
-        {invite?.map((candidature:InviteProps)=>(
+        {newdata?.map((candidature:userDataSingle)=>(
             <S.AdvertsMain>
                         
-              
-           
+         
             <div className="block1">
-                <h1>{candidature?.advert.title}</h1>
+                <h1>{candidature?.name}</h1>
 
                 <div className="blockContent">
-                    <span>{candidature?.advert.companyName}</span>
-                    <span>{candidature?.advert.typeMod}</span>
-                    <span>{candidature?.advert.typeCompany}</span>
-                    <span>{candidature?.advert.price}</span>
+                    <span>{candidature?.email}</span>
+                   
                 </div>
 
-                <div className="blockContent2">
-                    <span>{candidature?.advert.especiality1}</span>
-                    <span>{candidature?.advert.especiality2}</span>
-                    <span>{candidature?.advert.especiality3}</span>
-                    <span>{candidature?.advert.especiality4}</span>
-
-                </div> 
-
+       
             </div>
 
             <div className="block2">
-                <button>Enviada</button>
+            {candidature ? <button>Aceitar</button> : ""}
+            {candidature ? <button>Recusar</button> : ""}
+            
+
             </div>
 
+           
           
             
         </S.AdvertsMain>

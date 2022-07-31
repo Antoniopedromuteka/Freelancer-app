@@ -42,14 +42,7 @@ export default function Candidature(){
 
 
                  <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
-                 <CandidatureSent/>
+               
 
 
 
